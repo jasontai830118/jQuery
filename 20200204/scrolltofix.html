@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            height: 300vh;
+        }
+
+        header {
+            height: 200px;
+        }
+
+        .nav.active {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .full-pages {
+            height: 100vh;
+        }
+
+        .img {
+            position: fixed;
+            right: -600px;
+            top: 150px;
+            transition: 0.5s;
+        }
+
+        .img.active {
+            right: 0;
+        }
+
+        .img1 {
+            position: fixed;
+            left: -600px;
+            top: 100px;
+            transition: 0.5s;
+        }
+
+        .img1.active {
+            left: 0px;
+            /* top: 300px; */
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="full-pages">
+        <header></header>
+        <nav class="nav text-white py-3 bg-primary justify-content-center">
+
+            nav
+        </nav>
+        <img class="img" id="img" src="images/01.png" alt="">
+    </div>
+    <div class="full-pages" id="page2">
+        <img class="img1" id="img1" src="images/03.png" alt="">
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        let navPosition = $("nav").offset().top;
+        let page2 = $("#page2").offset().top
+        console.log(navPosition);
+        $(window).scroll(function () {
+
+            let scrollHeight = $(this).scrollTop()
+            console.log(scrollHeight)
+            if (scrollHeight >= navPosition) {
+                $("nav").addClass("active")
+            } else {
+                $("nav").removeClass("active")
+            }
+            if (scrollHeight >= 400) {
+                $("#img").addClass("active")
+                $("#img").css("transform", "rotate(-" + scrollHeight + "deg)")
+            } else {
+                $("#img").removeClass("active")
+            }
+
+            if (scrollHeight >= (page2 - 250)) {
+                $("#img1").addClass("active")
+            } else {
+                $("#img1").removeClass("active")
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cat Walk</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <style>
+    .map {
+      position: relative;
+      width: 640px;
+      height: 480px;
+      margin: 20px auto;
+      background: url(images/map.png);
+    }
+
+    .cat {
+      position: absolute;
+      left: 132px;
+      top: -14px;
+      width: 184px;
+      height: 200px;
+      margin: 2% auto;
+      background: url(images/cat.png) left top;
+      transform-origin: left top;
+      transform: scale(0.4);
+    }
+
+    @keyframes play {
+      100% {
+        background-position: -1658px;
+      }
+    }
+
+    .cat {
+      animation: play .8s steps(9) infinite;
+      -webkit-animation: play .8s steps(9) infinite;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="py-2 text-center">
+    <button type="button" class="btn btn-primary" id="speedin">speed increase</button>
+    <button type="button" class="btn btn-primary" id="speedde">speed decrease</button>
+
+  </div>
+  <div class="py-2 text-center">
+    <button type="button" class="btn btn-primary" id="speedmax">speed max</button>
+    <button type="button" class="btn btn-primary" id="speedmin">speed min</button>
+
+  </div>
+  <div class="text-center" id="speedshow"></div>
+  <div class="map">
+    <div class="cat"></div>
+  </div><!-- map -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script>
+    let speed = 2
+    $("#speedshow").text(speed)
+    $("#speedin").click(function () {
+      if (speed < 50) { speed += 2 }
+      // console.log(speed)
+      $("#speedshow").text(speed)
+    })
+    $("#speedde").click(function () {
+      if (speed > 2) { speed -= 2 }
+      $("#speedshow").text(speed)
+    })
+    $("#speedmax").click(function () {
+      speed = 50
+      $("#speedshow").text(speed)
+    })
+    $("#speedmin").click(function () {
+      speed = 2
+      $("#speedshow").text(speed)
+    })
+
+    $("body").on({
+      keydown: function () {
+        let keycode = event.which
+        let ptop = $(".cat").css("top")
+        let pleft = $(".cat").css("left")
+        console.log("keydown:" + keycode)
+        topp = parseInt(ptop)
+        leftt = parseInt(pleft)
+
+        // console.log(eval(vvvv - speed))
+
+        if (keycode == 38 && eval(topp - speed) >= -14) {
+
+          $(".cat").css("top", "-=" + speed)
+          console.log(ptop)
+        } else if (keycode == 38) {
+          $(".cat").css("top", -14)
+        }
+
+        if (keycode == 40 && eval(topp + speed) < 385) {
+          $(".cat").css("top", "+=" + speed)
+          console.log(ptop)
+        } else if (keycode == 40) {
+          $(".cat").css("top", 385)
+          console.log(ptop)
+        }
+
+        if (keycode == 37 && eval(leftt - speed) >= 3) {
+          $(".cat").css("left", "-=" + speed)
+          console.log(pleft)
+        } else if (keycode == 37) {
+          $(".cat").css("left", 3)
+          console.log(pleft)
+        }
+
+        if (keycode == 39 && eval(leftt + speed) < 565) {
+          $(".cat").css("left", "+=" + speed)
+          console.log(pleft)
+        } else if (keycode == 39) {
+          $(".cat").css("left", 565)
+          console.log(pleft)
+        }
+
+      },
+
+      // keyup: function () {
+      //   let keycode = event.which
+      //   console.log("keyup:" + keycode)
+      // },
+      // keypress: function () {
+      //   let keycode = event.which
+      //   console.log("keypress:" + keycode)
+      // },
+
+    })
+  </script>
+</body>
+
+</html>

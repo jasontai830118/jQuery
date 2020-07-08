@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+</head>
+
+
+<body>
+    <div class="container">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th>品名</th>
+                    <th>單價</th>
+                    <th width="200px">數量</th>
+                    <th>小計</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="product" data-price="20">
+                    <th scope="row" class="prodN">蘋果</th>
+                    <td class="price">20</td>
+                    <td><input class="form-control text-right prodQ" type="number" min="0" value="1"></td>
+                    <td class="text-center"><span class="subtotal">0 </span></td>
+                </tr>
+                <tr class="product" data-price="16">
+                    <th scope="row" class="prodN">香蕉</th>
+                    <td class="price">16</td>
+                    <td>
+                        <input class="form-control text-right prodQ" type="number" min="0" value="1">
+                    </td>
+                    <td class="text-center"><span class="subtotal"> 0</span></td>
+                </tr>
+                <tr class="product" data-price="25">
+                    <th scope="row" class="prodN">橘子</th>
+                    <td class="price">25</td>
+                    <td>
+                        <input class="form-control text-right prodQ" type="number" min="0" value="1">
+                    </td>
+                    <td class="text-center"><span class="subtotal"> 0</span></td>
+                </tr>
+                <tr>
+
+                    <th colspan="4" class="text-right"> 運費: 60 單筆超過500元免運</th>
+                </tr>
+                <tr>
+
+                    <th colspan="4" class="text-right">運費: <span id="fee">80</span></th>
+                </tr>
+                <tr>
+
+                    <th colspan="4" class="text-right">總價:<span id="total"> 0 </span></th>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+
+        function starttt() {
+            let total = 0
+            $(".product").each(function () {
+                let row = $(this)
+                // let price = row.children(".price").text()
+                let quantity = row.find(".prodQ").val()
+                let price = row.data("price")
+                // console.log(price)
+                // console.log(quantity)
+                let subtotal = eval(price * quantity)
+                // console.log(subtotal)
+                row.find(".subtotal").text(subtotal)
+                // console.log($(this).text())
+                total += Number(subtotal)
+                // console.log(total)
+                $("#total").text(total)
+            })
+            let fee = 60
+            if (total < 500 && total > 0) {
+
+                $("#fee").text(fee)
+            } else {
+                fee = 0
+                $("#fee").text(fee)
+            }
+            total += fee
+            $("#total").text(total)
+            console.log(1)
+        }
+        starttt()
+        $(".prodQ").on("change keyup", function () {
+            $(this).val($(this).val().replace(/[^\d].+/, ""));
+            if ((event.which < 48 || event.which > 57)) {
+                event.preventDefault();
+            }
+
+            if (($(this).val()) == "") $(this).val(0)
+            $(this).val(parseInt($(this).val()))
+            // let price = $(this).parent().siblings(".price").text()
+            // let quantity = $(this).val()
+            // console.log(price)
+            // console.log(quantity)
+            // let subtotal = eval(price * quantity)
+            // console.log(subtotal)
+            // $(this).parent().siblings().find(".subtotal").text(subtotal)
+            // let total = 0
+            // $(".subtotal").each(function () {
+            //     // console.log($(this).text())
+            //     total += Number($(this).text())
+            //     console.log(total)
+
+
+            // })
+            // let fee = 80
+            // if (total < 500 && total > 0) {
+            //     fee = 80
+            //     $("#fee").text(fee)
+            // } else {
+            //     fee = 0
+            //     $("#fee").text(fee)
+            // }
+            // total += fee
+            // $("#total").text(total)
+            starttt()
+        })
+    </script>
+</body>
+<!-- eval() -->
+
+</html>

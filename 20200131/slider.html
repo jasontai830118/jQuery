@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <style>
+        .wrapper {
+            max-width: 800px;
+            height: 400px;
+            background: black;
+            overflow: hidden;
+        }
+
+        .slider-img {
+            width: 3200px;
+            left: 000px;
+            transition: .5s;
+        }
+
+        .slider-img li {
+            height: 400px;
+            width: 0%;
+            flex-grow: 1;
+        }
+
+        .slider-img li img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+        }
+
+        .slider-dots {
+            width: 100%;
+            bottom: 0px;
+        }
+
+        .slider-dots li {
+            width: 28px;
+            height: 11px;
+            border: #ffffff 1px solid;
+            margin: 0 4px;
+            transition: 0.5s;
+        }
+
+        .slider-dots li:hover {
+            background: white;
+        }
+
+        .arrow {
+            font-size: 32px;
+            cursor: pointer;
+            width: 56px;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+            /* background: white; */
+        }
+
+        .arrow .fas {
+            color: white;
+            font-size: 32px;
+            /* background: white; */
+        }
+
+
+        .arrow-l {
+            left: 0;
+        }
+
+        .arrow-r {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper mx-auto position-relative">
+        <ul class="list-unstyled d-flex slider-img position-absolute" id="slider-img">
+            <li>
+                <img src="images/slide1.jpeg" alt="">
+            </li>
+            <li>
+                <img src="images/slide2.jpeg" alt="">
+            </li>
+            <li>
+                <img src="images/slide3.jpeg" alt="">
+            </li>
+            <li>
+                <img src="images/slide2.jpeg" alt="">
+            </li>
+        </ul>
+        <ul class="list-unstyled slider-dots position-absolute d-flex justify-content-center" id="slider-dots">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <!-- <ul class="list-unstyled slider-np position-absolute d-flex justify-content-between">
+            <li><img src="images/prev.png" alt=""></li>
+            <li><img src="images/next.png" alt=""></li>
+        </ul> -->
+
+        <a class="position-absolute arrow d-flex justify-content-center align-items-center arrow-l" role="button"
+            id="goprev">
+            <i class="far fa-arrow-alt-circle-left text-white"></i>
+        </a>
+        <a class="position-absolute arrow d-flex justify-content-center align-items-center arrow-r" role="button"
+            id="gonext">
+            <i class="far fa-arrow-alt-circle-right text-white"></i>
+        </a>
+    </div>
+
+    <!-- Optibonal JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        let slideWidth = $(".slider-img li").width();
+        console.log(slideWidth);
+
+        let slidecount = $(".slider-img li").length;
+        console.log(slidecount);
+        let index = 0;
+
+
+        $("#slider-dots li").eq(0).css("background", "#fff")
+
+        $("#slider-dots li").hover(function () {
+            // console.log("hover")
+            index = $(this).index()
+            // console.log(index)
+            // $("#slider-img").css("left", 0 - index * slideWidth)
+            // $(this).css("background", "white")
+            //     .siblings().css("background", "transparent")
+            goslide()
+        })
+        $("#goprev").click(function () {
+            index--;
+            console.log(index);
+            if (index < 0) index = (slidecount - 1);
+            console.log(index);
+            goslide();
+        })
+        $("#gonext").click(function () {
+            index++;
+            console.log(index);
+            if (index > (slidecount - 1)) index = 0;
+            console.log(slidecount);
+            goslide();
+        })
+        function goslide() {
+            $("#slider-img").css("left", 0 - index * slideWidth);
+            $("#slider-dots li").eq(index).css("background", "white")
+                .siblings().css("background", "transparent");
+        }
+
+    </script>
+</body>
+
+</html>

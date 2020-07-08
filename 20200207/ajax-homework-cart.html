@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <style>
+        body {
+            background: #eee;
+        }
+
+
+
+        .card img {
+            width: 100%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="py-2">
+            <div class="row mt-3 mb-3" id="list-target">
+                <!-- <div class="col-md-3 text-center">
+                    <div class="card">
+                        <div class="card-body py-1 sm-3">
+                            <img src="./images/item-apple.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                            <h5 class=" text-left">蘋果</h5>
+                            <div class="d-flex justify-content-between ">
+                                <div>
+                                    <span class=" text-left text-danger price">$20</span>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-primary 
+                            "><i class="fas fa-cart-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="card">
+                        <div class="card-body py-1 sm-3">
+                            <img src="./images/item-apple.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                            <h5 class=" text-left">蘋果</h5>
+                            <div class="d-flex justify-content-between ">
+                                <div>
+                                    <span class=" text-left text-danger price">$20</span>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-primary 
+                            "><i class="fas fa-cart-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="card">
+                        <div class="card-body py-1 sm-3">
+                            <img src="./images/item-apple.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                            <h5 class=" text-left">蘋果</h5>
+                            <div class="d-flex justify-content-between ">
+                                <div>
+                                    <span class=" text-left text-danger price">$20</span>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-primary 
+                            "><i class="fas fa-cart-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="card">
+                        <div class="card-body py-1 sm-3">
+                            <img src="./images/item-apple.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                            <h5 class=" text-left">蘋果</h5>
+                            <div class="d-flex justify-content-between ">
+                                <div>
+                                    <span class=" text-left text-danger price">$20</span>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-primary 
+                            "><i class="fas fa-cart-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+
+                <!-- <div class="col-3 card  p-2"></div>
+                <div class="col-3 card  p-2"></div>
+                <div class="col-3 card  p-2"></div> -->
+
+            </div>
+            <div class="row mt-3 mb-3 d-flex justify-content-center">
+                <div class="col-md-6 text-center">
+                    <div class="card">
+
+                        <div class="card-body" id="cart">
+                            <h5 class=" text-left">購物車</h5>
+
+                            <table class="table">
+                                <thead class="">
+                                    <tr class="row">
+                                        <th class="col-2">品名</th>
+                                        <th class="col-2">單價</th>
+                                        <th class="col-3">數量</th>
+                                        <th class="col-3">小計</th>
+                                        <th class="col-2">功能</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="" id="cart-target">
+                                    <!-- <tr class="row">
+                                        <td class="col-2">蘋果</td>
+                                        <td class="col-2">20</td>
+                                        <td class="col-2"><input type="number" class="form-control text-right" value="1"
+                                                min="0"></td>
+                                        <td class="col-3">
+                                            $100
+                                        </td>
+                                        <td class="col-3">
+                                            <button type="button btn-block" class="btn btn-primary btn-del
+                                        "><i class="fas fa-trash-alt"></i></button></td>
+                                    </tr> -->
+                                </tbody>
+                                <tfoot class="table">
+                                    <tr>
+
+                                        <th colspan="4" class="text-right"> 運費: 60 單筆超過500元免運</th>
+                                    </tr>
+                                    <tr class="row">
+                                        <td class="col-6"></td>
+                                        <td class="col-3">運費 :</td>
+                                        <td class="col-3">$<span id="fee">0</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="row">
+                                        <td class="col-6"></td>
+                                        <td class="col-3">總價 :</td>
+                                        <td class="col-3">$<span id="total">0</span>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+
+                            <div class="">
+
+                                <button type="button btn-block" class="btn btn-primary 
+                            ">結帳</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        $.ajax({
+            method: "GET",
+            url: "food.json",
+            dataType: "json",
+        }).done(function (food) {
+            console.log(food);
+            food.forEach(function (fruit) {
+                let prodlist = `
+                <div class="col-md-3 text-center">
+                    <div class="card">
+                        <div class="card-body py-1 sm-3">
+                            <img src="./images/${fruit.image}" alt="">
+                        </div>
+                        <div class="card-body">
+                            <h5 class=" text-left">${fruit.name}</h5>
+                            <div class="d-flex justify-content-between ">
+                                <div>
+                                    <span class=" text-left text-danger price">$ ${fruit.price}</span>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-primary addtocart" data-name="${fruit.name}" data-price="${fruit.price}"><i class="fas fa-cart-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`
+                $("#list-target").append(prodlist)
+            })
+        }).fail(function () {
+            alert("error");
+        }).always(function () {
+            console.log("complete");
+        })
+        let plist = []
+        console.log(plist)
+        $("#list-target").on("click", ".addtocart", function () {
+            let name = $(this).data("name");
+            let price = $(this).data("price");
+            let item = `
+            <tr class="row product" data-price="${price}">
+            <td class="col-2 prodname">${name}</td>
+            <td class="col-2">$${price}</td>
+            <td class="col-3 quantity">
+            <input type="number" class="form-control text-right prodQ" value="1">
+            </td>
+            <td class="col-3">
+            $<span class="subtotal"></span>
+            </td>
+            <td class="col-2"><button type="button btn-block" class="btn btn-primary btn-del" data-name="">
+            <i class="fas fa-trash-alt"></i>
+            </button>
+            </td>
+            </tr>`;
+            if (plist.includes(name)) {
+
+            } else {
+                $("#cart-target").append(item);
+                priceCurl()
+                plist.push(name)
+                console.log(plist)
+            }
+
+        })
+        $("#cart").on("click", ".btn-del", function () {
+            let name = $(this).parent().siblings(".prodname").text()
+            plist.pop(name)
+            console.log(plist)
+            $(this).parent().siblings(".quantity").children().val(0)
+
+            priceCurl()
+            $(this).parent().parent().remove()
+        })
+
+        function priceCurl() {
+            let total = 0
+            $(".product").each(function () {
+                let row = $(this)
+                // let price = row.children(".price").text()
+                let quantity = row.find(".prodQ").val()
+                let price = row.data("price")
+                // console.log(price)
+                // console.log(quantity)
+                let subtotal = eval(price * quantity)
+                // console.log(subtotal)
+                row.find(".subtotal").text(subtotal)
+                // console.log($(this).text())
+                total += Number(subtotal)
+                // console.log(total)
+                $("#total").text(total)
+            })
+            let fee = 60
+            if (total < 500 && total > 0) {
+
+                $("#fee").text(fee)
+            } else {
+                fee = 0
+                $("#fee").text(fee)
+            }
+            total += fee
+            $("#total").text(total)
+            console.log(1)
+        }
+        priceCurl()
+        $("#cart").on("change keyup", ".prodQ", function () {
+            priceCurl()
+            $(this).val($(this).val().replace(/[^\d].+/, ""));
+            if ((event.which < 48 || event.which > 57)) {
+                event.preventDefault();
+            }
+
+            if (($(this).val()) == "") $(this).val(0)
+            $(this).val(parseInt($(this).val()))
+            priceCurl()
+        })
+
+
+
+    </script>
+</body>
+
+</html>

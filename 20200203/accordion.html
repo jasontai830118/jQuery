@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .accordion {
+            height: 300px;
+        }
+
+        a {
+            background: lightblue;
+            font-size: 24px;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            transition: 0.5s;
+        }
+
+        div {
+            transition: 0.5s;
+            overflow: hidden;
+        }
+
+        .thide {
+            display: none;
+        }
+
+        div.active {
+            display: block;
+        }
+
+        a.active {
+            background: steelblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-3 d-flex accordion">
+        <a class="border d-block active px-2" id="jQuery">jQuery</a>
+        <div class="border thide active" id="jQuery-text">jQuery is a cross-platform JavaScript library designed to
+            simplify the
+            client-side
+            scripting
+            of HTML. It is
+            free, open-source software using the permissive MIT License. Web analysis indicates that it is the most
+            widely deployed JavaScript library by a large margin.</div>
+        <a class="border d-block px-2" id="CSS">CSS</a>
+        <div class="border thide" id="CSS-text">Cascading Style Sheets (CSS) is a style sheet language used for
+            describing
+            the
+            presentation
+            of a document
+            written in a markup language like HTML. CSS is a cornerstone technology of the World Wide Web, alongside
+            HTML and JavaScript.</div>
+        <a class="border d-block px-2" id="HTML">HTML</a>
+        <div class="border thide" id="HTML-text">Hypertext Markup Language (HTML) is the standard markup language for
+            creating web
+            pages and
+            web
+            applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone technologies
+            for the World Wide Web.</div>
+        <a class="border d-block px-2" id="PHP">PHP</a>
+        <div class="border thide" id="PHP-text">PHP: Hypertext Preprocessor (or simply PHP) is a server-side scripting
+            language
+            designed for
+            Web
+            development, but also used as a general-purpose programming language. It was originally created by Rasmus
+            Lerdorf in 1994, the PHP reference implementation is now produced by The PHP Group. PHP originally stood for
+            Personal Home Page, but it now stands for the recursive acronym PHP: Hypertext Preprocessor.</div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        $("#jQuery").click(function () {
+            $("#jQuery").addClass("active").siblings()
+                .removeClass("active")
+            $("#jQuery-text").addClass("active")
+        })
+        $("#CSS").click(function () {
+            $("#CSS").addClass("active").siblings()
+                .removeClass("active")
+            $("#CSS-text").addClass("active")
+        })
+        $("#HTML").click(function () {
+            $("#HTML").addClass("active").siblings()
+                .removeClass("active")
+            $("#HTML-text").addClass("active")
+        })
+        $("#PHP").click(function () {
+            $("#PHP").addClass("active").siblings()
+                .removeClass("active")
+            $("#PHP-text").addClass("active")
+        })
+
+    </script>
+</body>
+
+</html>
